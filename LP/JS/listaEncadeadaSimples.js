@@ -2,109 +2,132 @@ import { No } from "./no.js";
 
 export class ListaEncadeada{
     constructor(){
-        this.cabeca = null;
         this.contador = 0;
+        this.cabeca = null;
     }
-
-    addNoComeco(conteudo) {
+    // unshift()
+    addNoInicio(conteudo){
         let novoNo = new No(conteudo, null);
-        if(this.cabeca != null){
+        if(this.cabeca === null){
+            this.cabeca = novoNo;
+            this.contador++;
+            return this.contador;
+        }else {
             novoNo.proximo = this.cabeca;
             this.cabeca = novoNo;
-        }else {
-            this.cabeca = novoNo;
-        }        
-        this.contador ++;
-        return this.contador;
+            this.contador++;
+            return this.contador;
+        }
     }
-
+    // push()
     addNoFim(conteudo){
         let novoNo = new No(conteudo, null);
-        if (this.cabeca === null) {
+        if(this.cabeca === null){
             this.cabeca = novoNo;
-        } else {
+            this.contador++;
+            return this.contador;
+        }else {
             let aux = this.cabeca;
             while(aux.proximo !== null){
                 aux = aux.proximo;
             }
             aux.proximo = novoNo;
+            this.contador++;
+            return this.contador;
         }
-        this.contador ++;
-        return this.contador;
     }
-
-    addNoEm(conteudo, indice){
-        let novoNo = new No(conteudo, null);
-        if(this.contador < indice){
+    // "splice()"
+    addNoIndice(conteudo, indice){
+        if(indice === 0){
+            return this.addNoInicio(conteudo);
+        }else if(indice >= this.contador){
             return this.addNoFim(conteudo);
         }else{
-            let noIndice = this.cabeca;
-            let noAnterior = null;
-            for (let i = 1; i < indice; i++) {
-                noAnterior = noIndice;
-                noIndice = this.noIndice.proximo;                
+            let novoNo = new No(conteudo, null);
+            let aux = this.cabeca;
+            let anterior = null;
+            for (let i = 0; i < indice ; i++) {
+                anterior = aux;
+                aux = aux.proximo;
             }
-            noAnterior.proximo = novoNo;
-            novoNo.proximo = noIndice;
+            anterior.proximo = novoNo;
+            novoNo = aux;
+            this.contador++;
+            return this.contador;
         }
-        this.contador++;
-        return this.contador;
     }
-
-    removerPrimeiroNo(){
+    // shift()
+    removerNoInicio(){
         if(this.cabeca === null){
             return null;
         }else{
-            let aux = this.cabeca;
+            aux = this.cabeca;
             this.cabeca = this.cabeca.proximo;
             aux.proximo = null;
             this.contador--;
             return aux.conteudo;
         }
     }
-
-    removerNoIndice(indice){
-        if(this.contador < indice){
-            return null;
-        }else{
-            let noIndice = this.cabeca;
-            let noAnterior = null;
-            for (let i = 1; i < indice; i++) {
-                noAnterior = noIndice;
-                noIndice = this.noIndice.proximo;                
-            }
-            noAnterior.proximo = noIndice.proximo;
-            noIndice.proximo = null;
-            this.contador--;
-            return noIndice.conteudo;
-        }
-    }
-
+    // pop()
     removerNoFim(){
         if(this.cabeca === null){
             return null;
         }else{
             let aux = this.cabeca;
+            let anterior;
             while(aux.proximo !== null){
-                noAnterior = aux;
+                anterior = aux;
                 aux = aux.proximo;
             }
-            noAnterior.proximo = null;
+            anterior.proximo = null;
+            this.contador--;
+            return aux.conteudo;
+        }
+    }
+    // splice()
+    removerNoIndice(indice){
+        if(indice === 0){
+            return this.removerNoInicio();
+        }else if(indice >= this.contador){
+            return null;
+        }else{
+            let aux = this.cabeca;
+            let anterior = null;
+            for (let i = 0; i < indice ; i++) {
+                anterior = aux;
+                aux = aux.proximo;
+            }
+            anterior.proximo = aux.proximo;
+            aux.proximo = null;
             this.contador--;
             return aux.conteudo;
         }
     }
 
-    exibirNos(){
+    pegarConteudoIndice(indice){
         if(this.cabeca === null){
-            console.log(null);
-        }else {
+            return null;
+        }else if(indice === 0){
+            return this.cabeca.conteudo;
+        }else{
             let aux = this.cabeca;
-            while(aux !== null){
-                console.log(aux.conteudo);
+            for (let i = 0; i < indice ; i++) {
                 aux = aux.proximo;
             }
+            return aux.conteudo;
         }
     }
 
+    listarConteudos(){
+        if(this.cabeca === null){
+            console.log(null);
+        }else{
+            let aux = this.cabeca;
+            while(aux.proximo !== null){
+                console.log(aux.conteudo);
+                aux = aux.proximo;
+            }
+            console.log(aux.conteudo);
+        }
+    }
 }
