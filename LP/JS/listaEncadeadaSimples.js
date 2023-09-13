@@ -84,7 +84,7 @@ export class ListaEncadeada{
             return aux.conteudo;
         }
     }
-    // splice()
+    // "splice()"
     removerNoIndice(indice){
         if(indice === 0){
             return this.removerNoInicio();
