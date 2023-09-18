@@ -1,6 +1,6 @@
-import { Cliente } from "./cliente.js";
-import { Produto } from "./produto.js";
-import { Pedido } from "./pedido.js";
+import { Cliente } from "./cafeteria/cliente.js";
+import { Produto } from "./cafeteria/produto.js";
+import { Pedido } from "./cafeteria/pedido.js";
 
 var listaPedidos = [];
 
@@ -32,13 +32,20 @@ pedidoLuciano.addProduto(sucoAcai);
 
 listaPedidos.push(pedidoLuciano);
 
-console.log(listaPedidos);
-
 // Pedido de Danilo pra preparo
 // console.log(`Cliente => ${listaPedidos[0].cliente.nome}`);
 // console.log(`Telefone => ${listaPedidos[0].cliente.telefone}`);
 // console.log(`Sala => ${listaPedidos[0].cliente.sala}`);
 
-console.log(listaPedidos.shift());
-
-console.log(listaPedidos);
+for (let p of listaPedidos) {
+    console.log("Pedido de: ")
+    for (const key in p.cliente) {
+        console.log(`\t${key} => ${p.cliente[key]}`);
+    }
+    console.log("\tItens: ")
+    for (let item of p.itens) {
+        for (const key in item) {
+            console.log(`\t\t${key} => ${item[key]}`);
+        }
+    }
+}
