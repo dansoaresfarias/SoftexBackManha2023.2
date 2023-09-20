@@ -1,0 +1,18 @@
+{
+  "name": "banconode",
+  "version": "1.0.0",
+  "description": "Estudo de caso de um banco financeiro para a disciplina de JS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Educação"
+  ],
+  "author": "Turma Back FAP manhã",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "prompt": "^1.3.0"
+  }
+}
