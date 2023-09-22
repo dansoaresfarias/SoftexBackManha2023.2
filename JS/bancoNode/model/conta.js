@@ -25,14 +25,57 @@ export class Conta{
             this.transacoes.push(trans);
         } else {
             // Lançar um erro
-            console.log('Erro: Saldo insuficiente ' + valor + 'maior do que o saldo' + this.saldo + '.');
+            console.error('Erro: Saldo insuficiente ' + valor + 'maior do que o saldo' + this.saldo + '.');
         }
     }
     // transferir da conta
+    tranferir(valor, contaFav){
+        if (this.saldo>=valor) {
+            this.saldo -= valor;
+            contaFav.saldo += valor;
+            let transFav = new Transacao(TIPOTRANS.transferencia, new Date().toLocaleDateString(), valor, this.cliente.nome, '+');
+            contaFav.transacoes.push(transFav);
+            let trans = new Transacao(TIPOTRANS.transferencia, new Date().toLocaleDateString(), valor, contaFav.cliente.nome, '-');
+            this.transacoes.push(trans);
+        } else {
+            // Lançar um erro
+            console.error('Erro: Saldo insuficiente'+ valor + 'para transferir, seu saldo é' + this.saldo + '.');
+        }
+    }
 
     // realizar pagamento da conta
-
+    pagar(valor){
+        if (this.saldo>=valor) {
+            this.saldo -= valor;
+            let trans = new Transacao(TIPOTRANS.pagamento, new Date().toLocaleDateString(), valor, null, '-');
+            this.transacoes.push(trans);
+        } else {
+            // Lançar um erro
+            console.error('Erro: Saldo insuficiente ' + valor + 'maior do que o saldo' + this.saldo + ' para realizar o pagamento.');
+        }
+    }
     // mostrar saldo da conta
+    mostrarSaldo(){
+        return this.saldo;
+    }
+
+    toString(){
+        return "\tAgência: " + this.agencia.numero + " | Conta: " + this.numero + "\n";
+    }
 
     // mostrar extrato da conta
+    mostrarExtrato(){
+        let extrato = "\t\tEXTRATO DE CONTA BANCÁRIA\n";
+        extrato += "\t-------------------------------------------\n";
+        extrato += this.toString();
+        extrato += this.cliente.toString();
+        extrato += "\t-------------------------------------------\n";
+        extrato += "\tDATA\t\tHISTÓRICO\t VALOR(R$)\n";
+        for (const trans of this.transacoes) {
+            extrato += trans.toString();
+        }
+        extrato += "\t-------------------------------------------\n";
+        extrato += "\tSaldo\t\t" + this.saldo + "\n";
+        return extrato;
+    }
 }

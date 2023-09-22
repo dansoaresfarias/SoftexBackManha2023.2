@@ -12,4 +12,6 @@ let contaEgito = new Conta(cliEgito, 765432, agencia, 1378.50);
 contaEgito.depositar(300);
 contaEgito.sacar(500);
 
-console.log(contaEgito);
+//alert(JSON.stringify(contaEgito));
+//console.log(contaEgito);
+console.log(contaEgito.mostrarExtrato());

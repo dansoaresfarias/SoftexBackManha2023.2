@@ -8,4 +8,8 @@ export class Cliente{
         this.telefone = telefone;
         this.endereco = endereco;
     }
+
+    toString(){
+        return "\tCliente: " + this.nome + " | CPF: " + this.cpf + "\n";
+    }
 }

@@ -6,4 +6,8 @@ export class Transacao{
         this.cliTransferencia = cliTransferencia;
         this.tipoValor = tipoValor;
     }
+
+    toString() {
+        return "\t" + this.data + "\t" + this.tipo + "\t\t" + this.tipoValor + " " + this.valor + "\n";
+    }
 }
