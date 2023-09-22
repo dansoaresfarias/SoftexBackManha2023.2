@@ -1,5 +1,5 @@
 export const TIPOTRANS = {
-    debito : "DÉBITO",
+    debito : "DEBITO  ",
     deposito : "DEPOSITO",
     transferencia : "TRANSFERENCIA",
     pagamento : "PAGAMENTO"

@@ -8,6 +8,6 @@ export class Transacao{
     }
 
     toString() {
-        return "\t" + this.data + "\t" + this.tipo + "\t\t" + this.tipoValor + " " + this.valor + "\n";
+        return "\t" + this.data + "\t" + this.tipo + "\t" + this.tipoValor + " " + this.valor + "\n";
     }
 }

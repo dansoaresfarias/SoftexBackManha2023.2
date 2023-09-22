@@ -25,7 +25,7 @@ export class Conta{
             this.transacoes.push(trans);
         } else {
             // Lançar um erro
-            console.error('Erro: Saldo insuficiente ' + valor + 'maior do que o saldo' + this.saldo + '.');
+            console.error('Erro: Saldo insuficiente ' + valor + ' é maior do que o saldo ' + this.saldo + '.');
         }
     }
     // transferir da conta
@@ -39,7 +39,7 @@ export class Conta{
             this.transacoes.push(trans);
         } else {
             // Lançar um erro
-            console.error('Erro: Saldo insuficiente'+ valor + 'para transferir, seu saldo é' + this.saldo + '.');
+            console.error('Erro: Saldo insuficiente'+ valor + ' para transferir, seu saldo é ' + this.saldo + '.');
         }
     }
 
@@ -51,7 +51,7 @@ export class Conta{
             this.transacoes.push(trans);
         } else {
             // Lançar um erro
-            console.error('Erro: Saldo insuficiente ' + valor + 'maior do que o saldo' + this.saldo + ' para realizar o pagamento.');
+            console.error('Erro: Saldo insuficiente ' + valor + ' é maior do que o saldo ' + this.saldo + ' para realizar o pagamento.');
         }
     }
     // mostrar saldo da conta
@@ -75,7 +75,7 @@ export class Conta{
             extrato += trans.toString();
         }
         extrato += "\t-------------------------------------------\n";
-        extrato += "\tSaldo\t\t" + this.saldo + "\n";
+        extrato += "\t\t\tSaldo\t\t" + this.saldo + "\n";
         return extrato;
     }
 }
