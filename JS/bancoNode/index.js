@@ -46,3 +46,5 @@ console.log(contaEgito.mostrarExtrato());
 console.log("\n================================");
 console.log(contaOnelia.mostrarExtrato());
 //console.log(endOnelia.toString());
+console.log("Número de contas já criadas: " + Conta.contador);
+console.log(contaOnelia.contador);
