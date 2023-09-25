@@ -14,6 +14,11 @@ let endOnelia = new Endereco('PE', "Recife", "Pina", "Av. Boa Viagem", 178, "Ap 
 let cliOnelia = new Cliente("Onélia Andrade", "111.555.333-00", new Date("2000-09-10").toLocaleDateString(), "7778889", "onelia@softex.com", "8199999900", endOnelia);
 let contaOnelia = new Conta(cliOnelia, 765455, agencia, 14001.50);
 
+endOnelia.rua = "Rua dos Navegantes";
+console.log(endOnelia.rua);
+cliOnelia.nome = "Onélia Andrade Cavalcanti";
+console.log(cliOnelia.nome);
+// cliOnelia.setNome("Onélia Andrade Cavalcanti"); // Não fazer o set desse jeito.
 contaEgito.depositar(300.0);
 contaEgito.sacar(500.0);
 contaEgito.pagar(78.0);
@@ -29,9 +34,15 @@ contaOnelia.pagar(50.0);
 contaOnelia.pagar(1000.0);
 contaOnelia.pagar(3780.0);
 contaOnelia.sacar(800.0);
+//console.log(contaOnelia.mostrarSaldo());
+//contaOnelia._saldo = 400; // apenas indica ao programador que o atributo saldo é privado.
+//contaOnelia.#saldo = 400; // trava o atributo saldo como privado.
+//console.log(contaOnelia.mostrarSaldo());
+
 
 //alert(JSON.stringify(contaEgito));
 //console.log(contaEgito);
 console.log(contaEgito.mostrarExtrato());
 console.log("\n================================");
 console.log(contaOnelia.mostrarExtrato());
+//console.log(endOnelia.toString());
