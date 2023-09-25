@@ -10,7 +10,7 @@ export class Conta{
     #status;
     #transacoes;
 
-    static contador = 0;
+    static #contador = 0;
 
     constructor(cliente, numero, agencia, saldo){
         this.#cliente = cliente;
@@ -20,7 +20,7 @@ export class Conta{
         this.#saldo = saldo;
         this.#status = true;
         this.#transacoes = [];
-        Conta.contador++;
+        Conta.#contador++;
     }
     // depositar da conta
     depositar(valor){
@@ -128,5 +128,9 @@ export class Conta{
 
     get transacoes() {
         return this.#transacoes;
+    }
+
+    static get contador() {
+        return Conta.#contador;
     }
 }
