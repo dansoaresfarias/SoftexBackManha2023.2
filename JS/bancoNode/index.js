@@ -1,6 +1,7 @@
 import { Agencia } from "./model/agencia.js";
 import { Cliente } from "./model/cliente.js";
 import { Conta } from "./model/conta.js";
+import { Poupanca } from "./model/contaPoupanca.js";
 import { Endereco } from "./model/endereco.js";
 
 let endAg = new Endereco('PE', "Recife", "São José", "Rua da Guia", 1000, 305, "40050-030");
@@ -13,6 +14,16 @@ let contaEgito = new Conta(cliEgito, 765432, agencia, 1378.50);
 let endOnelia = new Endereco('PE', "Recife", "Pina", "Av. Boa Viagem", 178, "Ap 2203", "50451-030");
 let cliOnelia = new Cliente("Onélia Andrade", "111.555.333-00", new Date("2000-09-10").toLocaleDateString(), "7778889", "onelia@softex.com", "8199999900", endOnelia);
 let contaOnelia = new Conta(cliOnelia, 765455, agencia, 14001.50);
+
+let contaOneliaPp = new Poupanca(cliOnelia, 7654551, agencia);
+
+contaOneliaPp.depositar(1000);
+
+let endDanilo = new Endereco('PE', "Recife", "Boa vista", "Rua Dom Bosco", 100, "Ap 1203", "50070-030");
+let cliDanilo = new Cliente("Danilo farias", "111.555.888-00", new Date("1986-09-07").toLocaleDateString(), "7775556", "danilof@softex.com", "8199998899", endDanilo);
+let contaDaniloPp = new Poupanca(cliDanilo, 2345671, agencia);
+
+contaDaniloPp.depositar(1000);
 
 endOnelia.rua = "Rua dos Navegantes";
 console.log(endOnelia.rua);
@@ -46,7 +57,16 @@ console.log(contaEgito.mostrarExtrato());
 console.log("\n================================");
 console.log(contaOnelia.mostrarExtrato());
 //console.log(endOnelia.toString());
-console.log("Número de contas já criadas: " + Conta.contador);
-console.log(contaOnelia.contador);
+//console.log("Número de contas já criadas: " + Conta.contador);
+console.log(Conta.qtdContas());
+//console.log(contaOnelia.contador);
 //Conta.contador = 200;
-console.log(Conta.contador);
+//console.log(Conta.contador);
+
+contaDaniloPp.renderMes();
+contaDaniloPp.renderMesQ(2);
+console.log(contaDaniloPp.mostrarSaldo());
+
+console.log("\n================================\n");
+contaOneliaPp.renderMes();
+console.log(contaOneliaPp.mostrarSaldo());
