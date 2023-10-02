@@ -3,5 +3,6 @@ export const TIPOTRANS = {
     deposito : "DEPOSITO",
     transferencia : "TRANSFERENCIA",
     pagamento : "PAGAMENTO",
-    render : "RENDIMENTO"
+    render : "RENDIMENTO",
+    cobrarTaxa : "TARIFAÇÃO"
 }
