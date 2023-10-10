@@ -32,13 +32,20 @@ cliOnelia.nome = "Onélia Andrade Cavalcanti";
 //console.log(cliOnelia.nome);
 // cliOnelia.setNome("Onélia Andrade Cavalcanti"); // Não fazer o set desse jeito.
 contaEgito.depositar(300.0);
-contaEgito.sacar(500.0);
+/* Quando usa o throw
+try {
+    contaEgito.sacar(500.0);
+} catch (error) {
+    console.error(error);
+}*/
+
 contaEgito.pagar(78.0);
 contaEgito.tranferir(600.0, contaOnelia);
 contaEgito.depositar(1000.0);
 contaEgito.pagar(380.0);
 contaEgito.pagar(2000.0);
 contaEgito.cobrarTaxaManutencao();
+contaEgito.sacar(500.0);
 
 contaOnelia.depositar(6000.0);
 contaOnelia.pagar(380.0);
@@ -70,5 +77,15 @@ contaDaniloPp.renderMes();
 contaDaniloPp.renderMes(4);
 console.log(contaDaniloPp.mostrarExtrato());
 console.log(contaDaniloPp.mostrarCliente());
+
+console.log("\n================================================================\n\n");
+
+let bancoSoftex = new Map();
+bancoSoftex.set(cliOnelia.cpf, contaOneliaPp);
+bancoSoftex.set(cliEgito.cpf, contaEgito);
+bancoSoftex.delete(cliEgito.cpf);
+console.log(bancoSoftex);
+
+
 // Erro método abstract
 //console.log(contaOnelia.mostrarCliente());
