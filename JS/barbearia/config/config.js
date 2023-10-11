@@ -1,5 +1,4 @@
 // config.js
-
 module.exports = {
     development: {
         username : 'root',
