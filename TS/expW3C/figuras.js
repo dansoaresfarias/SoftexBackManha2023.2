@@ -20,6 +20,7 @@ var Square = /** @class */ (function () {
 }());
 var ret = new Rectangle(10, 20);
 console.log(ret);
+//console.log(ret._height);
 console.log(ret.area());
 var quad = new Square(10);
 console.log(quad);
