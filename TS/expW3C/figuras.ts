@@ -37,3 +37,15 @@ console.log(ret.area());
 let quad = new Square(10);
 console.log(quad);
 console.log(quad.area());
+
+let cpf : number;
+cpf = 11122233300;
+
+function validarCPF(cpf : number | string) {
+    console.log(cpf);
+}
+
+validarCPF(cpf);
+console.log("Teste de Caio");
+
+console.log(typeof(cpf));
