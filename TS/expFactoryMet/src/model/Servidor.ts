@@ -28,6 +28,6 @@ export class Servidor extends Computador{
 
 
     toString(): string {
-        return `Computador Tipo: ${this.tipo} | Mem. RAM: ${super.getRam()}GB | CPU: ${super.getCPU()}GHz | SSD: ${super.getSSD()}GB | Preço: R$ ${super.getPreco()} | Sistema Operacional: ${this.so} | Sistema Raid: ${this.sistemaRaid}`;
+        return `Servidor: Mem. RAM: ${super.getRam()}GB | CPU: ${super.getCPU()}GHz | SSD: ${super.getSSD()}GB | Preço: R$ ${super.getPreco()} | Sistema Operacional: ${this.so} | Sistema Raid: ${this.sistemaRaid}`;
     }
 }

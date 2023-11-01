@@ -16,7 +16,7 @@ export class PC extends Computador {
         this.monitor = monitor;
     }
 
-    toString(): string {
-        return `Computador Tipo: ${this.tipo} | Mem. RAM: ${super.getRam()}GB | CPU: ${super.getCPU()}GHz | SSD: ${super.getSSD()}GB | Preço: R$ ${super.getPreco()} | Monitor: ${this.monitor}`;
+    override toString(): string {
+        return `PC: Mem. RAM: ${super.getRam()}GB | CPU: ${super.getCPU()}GHz | SSD: ${super.getSSD()}GB | Preço: R$ ${super.getPreco()} | Monitor: ${this.monitor}`;
     }
 }
