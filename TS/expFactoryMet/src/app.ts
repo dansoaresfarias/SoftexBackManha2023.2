@@ -1,7 +1,7 @@
 import { FabricaComp } from "./FabricaComp";
 import { Servidor } from "./model/Servidor";
 import { PC } from "./model/PC";
-import { Cliente } from "./model/user";
+import { Cliente } from "./model/User";
 
 let servidorSoftex  =  FabricaComp.createComp(32, 1000, 4.8, "servidor", 15000);
 
@@ -31,4 +31,4 @@ bigodon.nome = "Pai de bigodinho";
 bigodon.idade = "68";
 
 console.log(listaUsuarios);
-console.log(onelia.getGenericCliente("nome"));
+console.log(onelia.getGenericCliente("telefone"));
