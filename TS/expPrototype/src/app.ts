@@ -26,6 +26,9 @@ listaVeiculos.push(cloneMoto2);
 // Não foi criado um array de clones, pois já utilizamos clone para criar a listaVeiculos
 
 //console.log(listaVeiculos);
+
+console.table(listaVeiculos);
+
 listaVeiculos.forEach(element => {
     console.log(element.toString());
 });
