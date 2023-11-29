@@ -1,0 +1,6 @@
+1 - npm init -y
+2 - npm i -D typescript
+3 - npm i -D tsx
+4 - npx tsc --init
+5 - npx gitignore node
+6 - npm i -g ts-node 
