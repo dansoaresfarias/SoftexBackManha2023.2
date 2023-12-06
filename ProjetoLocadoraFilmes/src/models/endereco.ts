@@ -57,10 +57,6 @@ export class Endereco {
     }
 
     // Setters
-    setId(id: number): void {
-        this.id = id;
-    }
-
     setUF(UF: string): void {
         this.UF = UF;
     }
