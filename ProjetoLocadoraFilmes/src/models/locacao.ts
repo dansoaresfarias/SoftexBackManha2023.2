@@ -1,5 +1,6 @@
 import { Cliente } from "./cliente";
 import { Funcionario } from "./funcionario";
+import { Midia } from "./midia";
 
 export class Locacao {
 
@@ -13,11 +14,11 @@ export class Locacao {
     private formaPag: string;
     private funcionario: Funcionario;
     private cliente: Cliente;
-    private midias: Array<Object>;
+    private midias: Array<Midia>;
 
     // Construtor
     constructor(id: number, dataLocacao: Date, dataPrevista: Date, valorTotal: number, formaPag: string,
-        funcionario: Funcionario, cliente: Cliente, midias: Array<Object>) {
+        funcionario: Funcionario, cliente: Cliente) {
         this.id = id;
         this.dataLocacao = dataLocacao;
         this.dataPrevista = dataPrevista;
@@ -25,7 +26,7 @@ export class Locacao {
         this.formaPag = formaPag;
         this.funcionario = funcionario;
         this.cliente = cliente;
-        this.midias = midias;
+        this.midias = new Array<Midia>();
     }
 
     // Getters
@@ -65,7 +66,7 @@ export class Locacao {
         return this.cliente;
     }
 
-    getMidias(): Array<Object> {
+    getMidias(): Array<Midia> {
         return this.midias;
     }
 
@@ -102,8 +103,13 @@ export class Locacao {
         this.cliente = cliente;
     }
 
-    setMidias(midias: Array<Object>): void {
-        this.midias = midias;
+    addMidia(midia: Midia): void{
+        this.midias.push(midia);
     }
+
+    removeMidia(midia: Midia): void{
+        this.midias.splice(this.midias.indexOf(midia), 1);
+    }
+
 
 }

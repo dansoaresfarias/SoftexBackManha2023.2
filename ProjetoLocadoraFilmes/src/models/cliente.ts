@@ -1,4 +1,5 @@
 import { Endereco } from "./endereco";
+import { Telefone } from "./telefone";
 
 export class Cliente {
 
@@ -7,7 +8,7 @@ export class Cliente {
     private nome: string;
     private dataNasc: Date;
     private email: string;
-    private telefones: Array<string>;
+    private telefones: Array<Telefone>;
     private endereco: Endereco;
 
     // Constructor
@@ -16,7 +17,7 @@ export class Cliente {
         this.nome = nome;
         this.dataNasc = dataNasc;
         this.email = email;
-        this.telefones = new Array<string>();
+        this.telefones = new Array<Telefone>();
         this.endereco = end;
     }
 
@@ -37,7 +38,7 @@ export class Cliente {
         return this.email;
     }
 
-    getTelefones(): Array<string> {
+    getTelefones(): Array<Telefone> {
         return this.telefones;
     }
 
@@ -59,11 +60,11 @@ export class Cliente {
     }
 
 
-    public addTel(numTel: string) {
+    public addTel(numTel: Telefone) {
         this.telefones.push(numTel);
     }
 
-    public remevoTel(numTel: string) {
+    public remevoTel(numTel: Telefone) {
         this.telefones.splice(this.telefones.indexOf(numTel), 1);
     }
 }
