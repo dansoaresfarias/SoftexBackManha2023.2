@@ -8,7 +8,6 @@ export default class GeneroController {
 
     async create(req: Request, res: Response) {
         if (!req.body.nome) {
-            console.log(req.body)
             res.status(400).send({
                 message: "Não pode ser vazio o gênero!"
             });
