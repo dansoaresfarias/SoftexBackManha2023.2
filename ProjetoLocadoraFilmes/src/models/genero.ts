@@ -1,8 +1,9 @@
 export class Genero{
 
     // Fields
-    private id: number;
-    private nome: string;
+    id: number;
+    nome: string;
+    published?: boolean; 
 
     // Constructor
     constructor(id: number, nome: string) {
