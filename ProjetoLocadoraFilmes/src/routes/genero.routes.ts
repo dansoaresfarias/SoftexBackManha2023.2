@@ -25,10 +25,10 @@ class GeneroRoutes {
     this.router.put("/:id", this.controller.update);
 
     // Deleta um genero pelo seu id
-    //this.router.delete("/:id", this.controller.delete);
+    this.router.delete("/:id", this.controller.delete);
 
     // Deleta todos os generos
-    //this.router.delete("/", this.controller.deleteAll);
+    this.router.delete("/", this.controller.deleteAll);
   }
 }
 

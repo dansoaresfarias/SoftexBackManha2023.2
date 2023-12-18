@@ -81,5 +81,38 @@ export default class GeneroController {
         }
     }
 
+    async delete(req: Request, res: Response) {
+        const id: number = parseInt(req.params.id);
+
+        try {
+            const num = await generoRepository.delete(id);
+
+            if (num == 1) {
+                res.send({
+                    message: "Genero deletado com sucesso!"
+                });
+            } else {
+                res.send({
+                    message: `Não foi possível deletar o Gênero com id=${id}. Talvez o Gênero não tenha sido encontrado.`,
+                });
+            }
+        } catch (err) {
+            res.status(500).send({
+                message: `O Gênero com id==${id}, não pode ser deletado.`
+            });
+        }
+    }
+
+    async deleteAll(req: Request, res: Response) {
+        try {
+            const num = await generoRepository.deleteAll();
+
+            res.send({ message: `${num} Gêneros foram deletados com sucesso!` });
+        } catch (err) {
+            res.status(500).send({
+                message: "Algum erro ocorreu enquato deletava todos os gêneros."
+            });
+        }
+    }
 
 }

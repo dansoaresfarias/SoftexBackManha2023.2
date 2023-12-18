@@ -29,7 +29,7 @@ class GeneroRepository {
             });
             return null;
         } catch (error) {
-            throw new Error("Failed to retrieve Tutorials!");
+            throw new Error("Falha ao buscar o gênero!");
         }
     }
 
@@ -44,7 +44,31 @@ class GeneroRepository {
             });
             return 0;
         } catch (error) {
-            throw new Error("Failed to update Tutorial!");
+            throw new Error("Falha ao atualizar o gênero!");
+        }
+    }
+
+    async delete(generoId: number): Promise<number> {
+        try {
+            this.generosDB.forEach(element => {
+                if (element.id == generoId) {
+                    this.generosDB.splice(this.generosDB.indexOf(element), 1);
+                    return 1;
+                }
+            });
+            return 0;
+        } catch (error) {
+            throw new Error("Falha ao deletar o gênero!");
+        }
+    }
+
+    async deleteAll(): Promise<number> {
+        try {
+            let num = this.generosDB.length;
+            this.generosDB.splice(0, this.generosDB.length);
+            return num;
+        } catch (error) {
+            throw new Error("Falha ao deletar todos os gêneros!");
         }
     }
 
