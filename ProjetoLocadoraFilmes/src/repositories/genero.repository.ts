@@ -45,7 +45,7 @@ class GeneroRepository {
             var encontrado = false;
             this.generosDB.forEach(element => {
                 if (element.id == genero.id) {
-                    element = genero;
+                    element.nome = genero.nome;
                     encontrado = true;
                 }
             });
