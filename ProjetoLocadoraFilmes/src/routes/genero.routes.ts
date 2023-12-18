@@ -19,16 +19,16 @@ class GeneroRoutes {
     this.router.get("/generos", this.controller.findAll);
 
     // Retorna um genero específico pelo seu id
-    this.router.get("/:id", this.controller.findOne);
+    this.router.get("/genero/:id", this.controller.findOne);
 
     // Atualizar um genero pelo seu id
-    this.router.put("/:id", this.controller.update);
+    this.router.put("/genero/:id", this.controller.update);
 
     // Deleta um genero pelo seu id
-    this.router.delete("/:id", this.controller.delete);
+    this.router.delete("/genero/:id", this.controller.delete);
 
     // Deleta todos os generos
-    this.router.delete("/", this.controller.deleteAll);
+    this.router.delete("/generos/", this.controller.deleteAll);
   }
 }
 

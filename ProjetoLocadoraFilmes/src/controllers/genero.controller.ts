@@ -45,7 +45,6 @@ export default class GeneroController {
 
         try {
             const genero = await generoRepository.retrieveById(id);
-
             if (genero) res.status(200).send(genero);
             else
                 res.status(404).send({

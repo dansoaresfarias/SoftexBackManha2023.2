@@ -22,12 +22,18 @@ class GeneroRepository {
 
     async retrieveById(generoId: number): Promise<Genero | null> {
         try {
-            this.generosDB.forEach(element => {
+            var encontrado = false;
+            var generoEncontrado = null;
+            this.generosDB.forEach(element => {            
                 if (element.id == generoId) {
-                    return element;
+                    generoEncontrado = element;
+                    encontrado = true;
                 }
             });
-            return null;
+            if (encontrado) {
+                return generoEncontrado;
+            } 
+            return null;         
         } catch (error) {
             throw new Error("Falha ao buscar o gênero!");
         }
@@ -36,12 +42,16 @@ class GeneroRepository {
     async update(genero: Genero): Promise<number> {
         const { id, nome, published } = genero;
         try {
+            var encontrado = false;
             this.generosDB.forEach(element => {
                 if (element.id == genero.id) {
                     element = genero;
-                    return 1;
+                    encontrado = true;
                 }
             });
+            if (encontrado) {
+                return 1;
+            } 
             return 0;
         } catch (error) {
             throw new Error("Falha ao atualizar o gênero!");
@@ -50,12 +60,16 @@ class GeneroRepository {
 
     async delete(generoId: number): Promise<number> {
         try {
+            var encontrado = false;
             this.generosDB.forEach(element => {
                 if (element.id == generoId) {
                     this.generosDB.splice(this.generosDB.indexOf(element), 1);
-                    return 1;
+                    encontrado = true;
                 }
             });
+            if (encontrado) {
+                return 1;
+            } 
             return 0;
         } catch (error) {
             throw new Error("Falha ao deletar o gênero!");
