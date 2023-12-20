@@ -2,6 +2,7 @@ import { Request, Response } from "express";
 import { Filme } from "../models/filme";
 import filmeRepository from "../repositories/filme.repository";
 import { Genero } from "../models/genero";
+import generoRepository from "../repositories/genero.repository";
 
 export default class FilmeController {
 
@@ -15,7 +16,14 @@ export default class FilmeController {
 
         try {
             const filme: Filme = req.body;
-            // Resolver o BO de generoS
+            const generoPrc: Genero | null = await generoRepository.retrieveById(parseInt(req.body.generos[0]));
+            if(generoPrc !== null){
+                filme.generos[0] = generoPrc;
+            }
+            const generoSgd: Genero | null = await generoRepository.retrieveById(parseInt(req.body.generos[1]));
+            if(generoSgd !== null){
+                filme.generos[1] = generoSgd;
+            }                
             const savedFilme = await filmeRepository.save(filme);
             res.status(201).send(savedFilme);
         } catch (err) {
