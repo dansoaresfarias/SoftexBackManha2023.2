@@ -2,8 +2,7 @@ export class Genero{
 
     // Fields
     id: number;
-    nome: string;
-    published?: boolean; 
+    nome: string; 
 
     // Constructor
     constructor(id: number, nome: string) {

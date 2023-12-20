@@ -13,13 +13,9 @@ export default class GeneroController {
             });
             return;
         }
-
         try {
             const genero: Genero = req.body;
-            if (!genero.published) genero.published = false;
-
             const savedGenero = await generoRepository.save(genero);
-
             res.status(201).send(savedGenero);
         } catch (err) {
             res.status(500).send({
@@ -31,7 +27,6 @@ export default class GeneroController {
     async findAll(req: Request, res: Response) {
         try {
             const generos = await generoRepository.retrieveAll();
-
             res.status(200).send(generos);
         } catch (err) {
             res.status(500).send({
@@ -42,7 +37,6 @@ export default class GeneroController {
 
     async findOne(req: Request, res: Response) {
         const id: number = parseInt(req.params.id);
-
         try {
             const genero = await generoRepository.retrieveById(id);
             if (genero) res.status(200).send(genero);
@@ -60,10 +54,8 @@ export default class GeneroController {
     async update(req: Request, res: Response) {
         let genero: Genero = req.body;
         genero.id = parseInt(req.params.id);
-
         try {
             const num = await generoRepository.update(genero);
-
             if (num == 1) {
                 res.send({
                     message: "Gênero foi atualizado com sucesso."
@@ -82,10 +74,8 @@ export default class GeneroController {
 
     async delete(req: Request, res: Response) {
         const id: number = parseInt(req.params.id);
-
         try {
             const num = await generoRepository.delete(id);
-
             if (num == 1) {
                 res.send({
                     message: "Genero deletado com sucesso!"
@@ -105,7 +95,6 @@ export default class GeneroController {
     async deleteAll(req: Request, res: Response) {
         try {
             const num = await generoRepository.deleteAll();
-
             res.send({ message: `${num} Gêneros foram deletados com sucesso!` });
         } catch (err) {
             res.status(500).send({

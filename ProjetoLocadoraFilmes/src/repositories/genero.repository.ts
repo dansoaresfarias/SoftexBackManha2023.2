@@ -40,7 +40,7 @@ class GeneroRepository {
     }
 
     async update(genero: Genero): Promise<number> {
-        const { id, nome, published } = genero;
+        const { id, nome } = genero;
         try {
             var encontrado = false;
             this.generosDB.forEach(element => {
