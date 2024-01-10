@@ -53,21 +53,12 @@ export default class GeneroController {
 
     async update(req: Request, res: Response) {
         let genero: Genero = req.body;
-        genero.id = parseInt(req.params.id);
+        genero.idGenero = parseInt(req.params.id);
         try {
-            const num = await generoRepository.update(genero);
-            if (num == 1) {
-                res.send({
-                    message: "Gênero foi atualizado com sucesso."
-                });
-            } else {
-                res.send({
-                    message: `Não foi possível ataulizar o Gênero com o id=${genero.id}. O Gênero não foi encontrado, ou ele está vazio!`
-                });
-            }
+            await generoRepository.update(genero);
         } catch (err) {
             res.status(500).send({
-                message: `Error ao atualizar o Gênero com id=${genero.id}.`
+                message: `Error ao atualizar o Gênero com id=${genero.idGenero}.`
             });
         }
     }

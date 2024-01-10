@@ -19,3 +19,6 @@
 10 - npm i cors
 11 - npm i -D @types/cors
 12 - npm i -D @types/node
+13 - npm install typeorm --save
+14 - npm install reflect-metadata --save
+15 - npm install mysql2 --save
